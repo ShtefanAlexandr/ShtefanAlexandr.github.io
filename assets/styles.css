@@ -58,7 +58,8 @@ a:hover { color: var(--plum); }
   text-decoration: none;
 }
 .site-nav a:hover { color: var(--plum); }
-.language-switch { display: inline-flex; align-items: center; gap: .35rem; color: var(--line); font-size: .82rem; }
+.language-switch { display: inline-flex; align-items: center; gap: .35rem; color: var(--line); font-size: .82rem; white-space: nowrap; }
+.language-icon { width: 1.1rem; height: 1.1rem; flex: none; color: var(--plum); }
 .language-switch a { padding: .15rem .18rem; }
 .language-switch a[aria-current="page"] { color: var(--plum); text-decoration: underline; text-underline-offset: .3em; }
 .download-menu { position: relative; }
