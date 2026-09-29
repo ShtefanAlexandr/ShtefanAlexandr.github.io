@@ -50,7 +50,7 @@ a:hover { color: var(--plum); }
   text-decoration: none;
 }
 .brand-dot { color: var(--coral); }
-.site-nav { display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; }
+.site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.6rem; }
 .site-nav a {
   color: var(--muted);
   font-size: .87rem;
@@ -58,6 +58,31 @@ a:hover { color: var(--plum); }
   text-decoration: none;
 }
 .site-nav a:hover { color: var(--plum); }
+.language-switch { display: inline-flex; align-items: center; gap: .35rem; color: var(--line); font-size: .82rem; }
+.language-switch a { padding: .15rem .18rem; }
+.language-switch a[aria-current="page"] { color: var(--plum); text-decoration: underline; text-underline-offset: .3em; }
+.download-menu { position: relative; }
+.download-menu summary { display: flex; align-items: center; gap: .5rem; cursor: pointer; list-style: none; }
+.download-menu summary::-webkit-details-marker { display: none; }
+.download-menu summary > span { font-size: 1.15em; line-height: 1; }
+.download-menu:not(.download-menu-hero) summary { color: var(--muted); font-size: .87rem; font-weight: 650; }
+.download-menu summary:hover { color: var(--plum); }
+.download-options {
+  position: absolute;
+  z-index: 4;
+  top: calc(100% + .5rem);
+  right: 0;
+  min-width: 195px;
+  padding: .4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  box-shadow: 0 12px 24px #4e34421c;
+}
+.download-options a { display: block; padding: .55rem .7rem; border-radius: 4px; color: var(--plum); font-size: .9rem; text-decoration: none; }
+.download-options a:hover, .download-options a:focus-visible { background: var(--paper); }
+.download-menu-hero .download-options { left: 0; right: auto; }
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, .8fr);
@@ -110,7 +135,7 @@ h1 {
   font-weight: 700;
   text-decoration: none;
 }
-.download-link:hover { background: #472437; color: white; }
+.download-link:hover, .download-menu[open] .download-link { background: #472437; color: white; }
 .text-link { color: var(--plum); font-weight: 700; text-decoration-thickness: 1px; }
 .hero-link { display: inline-block; }
 .focus-card {
@@ -181,6 +206,21 @@ h1 {
 .publication-list h3 a { text-decoration: none; }
 .publication-list h3 a:hover { text-decoration: underline; }
 .publication-list h3 span, .profile-links span { color: var(--coral); font-size: .9em; }
+.thesis-feature {
+  margin-bottom: 2.4rem;
+  padding: 1.55rem 1.7rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--coral);
+  border-radius: 6px;
+  background: var(--card);
+}
+.thesis-feature h3 { margin: .65rem 0 .35rem; font-size: 1.16rem; line-height: 1.45; }
+.thesis-feature h3 a { text-decoration: none; }
+.thesis-feature h3 a:hover { text-decoration: underline; }
+.thesis-feature h3 span { color: var(--coral); font-size: .85em; }
+.thesis-feature p { margin: .7rem 0; }
+.thesis-feature .thesis-source { color: var(--muted); font-size: .91rem; }
+.thesis-feature .text-link { display: inline-block; margin-top: .35rem; }
 .profile-links { display: grid; gap: .85rem; }
 .profile-links li { border-top: 1px solid var(--line); padding-top: 1rem; }
 .profile-links a { color: var(--plum); font-weight: 700; }
@@ -202,12 +242,15 @@ h1 {
 @media (max-width: 560px) {
   .site-header, main, .site-footer { width: min(100% - 2rem, 1160px); }
   .site-header { align-items: flex-start; }
+  .site-nav { gap: .5rem 1rem; }
+  .download-options { right: 0; }
   .site-nav { justify-content: flex-end; gap: .35rem 1rem; }
   .site-nav a { font-size: .79rem; }
   .hero { padding-top: 3.5rem; }
   .introduction { font-size: 1rem; }
   .focus-card { padding: 1.5rem; }
   .timeline li, .publication-list li { grid-template-columns: 1fr; gap: .2rem; }
+  .thesis-feature { padding: 1.25rem; }
   .site-footer { flex-direction: column; gap: .2rem; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -219,5 +262,5 @@ h1 {
   main, .site-footer { width: auto; margin: 0; }
   .hero, .section-block { padding-block: 1.2rem; }
   .focus-card { box-shadow: none; }
-  .timeline li, .publication-list li, .focus-card { break-inside: avoid; }
+  .timeline li, .publication-list li, .focus-card, .thesis-feature { break-inside: avoid; }
 }
