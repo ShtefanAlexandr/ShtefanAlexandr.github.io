@@ -187,7 +187,7 @@ h1 {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.timeline, .publication-list, .profile-links { margin: 0; padding: 0; list-style: none; }
+.timeline, .publication-list, .profile-links, .thesis-version-links { margin: 0; padding: 0; list-style: none; }
 .timeline li, .publication-list li {
   display: grid;
   grid-template-columns: 105px minmax(0, 1fr);
@@ -222,6 +222,9 @@ h1 {
 .thesis-feature p { margin: .7rem 0; }
 .thesis-feature .thesis-source { color: var(--muted); font-size: .91rem; }
 .thesis-feature .text-link { display: inline-block; margin-top: .35rem; }
+.thesis-versions { margin-top: 1rem; }
+.thesis-versions .thesis-source { margin: 0; }
+.thesis-version-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
 .profile-links { display: grid; gap: .85rem; }
 .profile-links li { border-top: 1px solid var(--line); padding-top: 1rem; }
 .profile-links a { color: var(--plum); font-weight: 700; }
